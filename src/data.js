@@ -15,7 +15,13 @@ export const initialData = {
   },
   about: {
     title: "About Me",
-    bio: `I’m a passionate web developer specializing in creating modern, visually appealing, and user-friendly websites. As a budding freelancer, I focus on delivering clean, responsive, and high-performance web experiences using React.js and CSS. I work primarily with the MERN stack (MongoDB, Express.js, React.js, Node.js) and leverage modern “vibe coding” tools to build efficient, scalable, and visually engaging applications. Whether you need a stunning frontend interface or a complete full-stack solution, I can adapt to your project requirements and deliver accordingly. I believe in writing clean code, maintaining good UI/UX standards, and building products that not only work well but also look great. My goal is to help clients turn their ideas into functional and impactful digital experiences.`,
+    /* ── moved out of JSX hardcoding ── */
+    stats: [
+      { value: '1',  label: 'Year'     },
+      { value: '5+', label: 'Projects' },
+    ],
+    tags: ['MERN Stack', 'React.js', 'UI/UX Design', 'Freelancer', 'Clean Code'],
+    bio: `I'm a passionate web developer specializing in creating modern, visually appealing, and user-friendly websites. As a budding freelancer, I focus on delivering clean, responsive, and high-performance web experiences using React.js and CSS. I work primarily with the MERN stack (MongoDB, Express.js, React.js, Node.js) and leverage modern "vibe coding" tools to build efficient, scalable, and visually engaging applications. Whether you need a stunning frontend interface or a complete full-stack solution, I can adapt to your project requirements and deliver accordingly. I believe in writing clean code, maintaining good UI/UX standards, and building products that not only work well but also look great. My goal is to help clients turn their ideas into functional and impactful digital experiences.`,
   },
   skills: {
     title: "Key Skills",
@@ -30,73 +36,73 @@ export const initialData = {
       "HTML",
       "JavaScript",
       "Vibe Coding",
-    ]
+    ],
   },
   FrontendProjects: {
     title: "Frontend Works",
-    desc: "Visually appealing frontend experiences mostly SAAS based landing pages.",
+    desc: "Visually appealing frontend experiences — mostly SaaS-based landing pages.",
     items: [
       {
         id: 1,
         title: "AI Powered Task Manager",
-        description: "A high-performance Netflix clone featuring movie categories and preview functionality.",
+        description: "An AI-assisted workflow manager featuring task categorisation, priority management, and a clean modern dashboard interface built for productivity.",
         link: "https://ai-powered-workflow-manger.vercel.app",
         codeLink: "https://github.com/gowravmunindra/AI-Powered-Workflow-Manger",
         imageUrl: images.HomeSection,
-        videoUrl: ""
+        videoUrl: "",
       },
       {
         id: 2,
-        title: "Flow Pilot ",
-        description: "A visually immersive VR-inspired web experience designed to simulate interactive workflows in a modern, engaging environment. Built with a focus on smooth animations, creative UI, and an intuitive user journey.",
+        title: "Flow Pilot",
+        description: "A visually immersive VR-inspired web experience designed to simulate interactive workflows in a modern, engaging environment. Built with smooth animations and an intuitive user journey.",
         link: "https://virtual-reality-sepia.vercel.app",
         codeLink: "https://github.com/gowravmunindra/Virtual_Reality",
         imageUrl: images.Vr,
-        videoUrl: ""
+        videoUrl: "",
       },
       {
         id: 3,
-        title: "BMI Calculator ",
-        description: "A visually immersive VR-inspired web experience designed to simulate interactive workflows in a modern, engaging environment. Built with a focus on smooth animations, creative UI, and an intuitive user journey.",
+        title: "BMI Calculator",
+        description: "A simple and responsive web application that calculates Body Mass Index (BMI) and provides instant health insights. Designed with a clean UI for quick input, accurate results, and seamless UX across devices.",
         link: "https://bmi-calulator-eight.vercel.app",
         codeLink: "https://github.com/gowravmunindra/BMI_Calulator",
         imageUrl: images.BMI,
-        videoUrl: ""
+        videoUrl: "",
       },
       {
         id: 4,
-        title: "Netflix (A clone of Netflix Landing Page) ",
-        description: "A pixel-perfect Netflix landing page clone created to replicate the original platform’s design and layout using advanced CSS techniques. Focused on mastering UI design, responsiveness, and real-world styling practices.",
+        title: "Netflix Clone",
+        description: "A pixel-perfect Netflix landing page clone created to replicate the original platform's design using advanced CSS techniques. Focused on mastering UI design, responsiveness, and real-world styling practices.",
         link: "https://netflix-landing-page-murex.vercel.app",
         codeLink: "https://github.com/gowravmunindra/Netflix-landing-Page",
         imageUrl: images.Netflix,
-        videoUrl: ""
+        videoUrl: "",
       },
-    ]
+    ],
   },
   MernStackProjects: {
     title: "MERN Stack Works",
-    desc: "Robust full-stack applications consits of all working functionalities",
+    desc: "Robust full-stack applications with complete, working functionalities.",
     items: [
       {
         id: 1,
         title: "Bite Reel",
-        description: "A modern and visually engaging web platform that showcases food-related reels with an interactive and aesthetic UI experience. Focused to build as a mobile first application.",
+        description: "A modern and visually engaging web platform that showcases food-related reels with an interactive and aesthetic UI. Built as a mobile-first application with a focus on smooth scrolling and performance.",
         link: "https://bite-reel-frontend.onrender.com",
         codeLink: "https://github.com/gowravmunindra/Bite-Reel-Application",
         imageUrl: images.BiteReel,
-        videoUrl: ""
+        videoUrl: "",
       },
       {
         id: 2,
         title: "Student Outing System",
-        description: "A specialized dashboard for managing and exploring virtual reality content.",
+        description: "A comprehensive student management system that automates and tracks outing requests, approvals, and records — featuring role-based dashboards for students and wardens with real-time status updates.",
         link: "https://student-outing-system-frontend.onrender.com",
         codeLink: "https://github.com/gowravmunindra/Student_Outing_System",
         imageUrl: images.StudentOutingSystem,
-        videoUrl: ""
-      }
-    ]
+        videoUrl: "",
+      },
+    ],
   },
   contact: {
     title: "Get In Touch",
@@ -107,11 +113,11 @@ export const initialData = {
     linkedin: "https://www.linkedin.com/in/gowrav-munindra-76a057224/",
   },
   layout: [
-    { id: 'hero', visible: true, locked: true },
-    { id: 'about', visible: true, locked: false },
-    { id: 'skills', visible: true, locked: false },
-    { id: 'FrontendProjects', visible: true, locked: false, navLabel: 'Frontend' },
+    { id: 'hero',              visible: true, locked: true  },
+    { id: 'about',             visible: true, locked: false },
+    { id: 'skills',            visible: true, locked: false },
+    { id: 'FrontendProjects',  visible: true, locked: false, navLabel: 'Frontend'   },
     { id: 'MernStackProjects', visible: true, locked: false, navLabel: 'MERN Stack' },
-    { id: 'contact', visible: true, locked: false }
-  ]
+    { id: 'contact',           visible: true, locked: false },
+  ],
 };

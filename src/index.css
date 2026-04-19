@@ -390,9 +390,9 @@ body::before {
   will-change: transform;
   border: 1.5px solid rgba(16, 185, 129, 0.5);
   background: rgba(16, 185, 129, 0.03);
-  transition: width 0.35s cubic-bezier(0.16,1,0.3,1), 
-              height 0.35s cubic-bezier(0.16,1,0.3,1), 
-              border-color 0.35s ease, 
+  transition: width 0.35s cubic-bezier(0.16,1,0.3,1),
+              height 0.35s cubic-bezier(0.16,1,0.3,1),
+              border-color 0.35s ease,
               background 0.35s ease,
               opacity 0.35s ease;
 }
@@ -442,113 +442,6 @@ body::before {
   width: 100px;
   height: 100px;
   opacity: 1.5;
-}
-
-/* ════════════════════════════════════════════════════════════════════════
-   SCROLL DRAG INDICATOR — Enhanced Orbital Animation
-   ═══════════════════════════════════════════════════════════════════════ */
-.scroll-drag-indicator {
-  position: relative;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-}
-
-.scroll-drag-indicator .orbit-ring {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  border: 1.5px solid rgba(16, 185, 129, 0.25);
-  animation: orbit-pulse 2.5s ease-in-out infinite;
-}
-
-.scroll-drag-indicator .orbit-ring-2 {
-  inset: -8px;
-  border-color: rgba(16, 185, 129, 0.12);
-  animation-delay: 0.7s;
-}
-
-.scroll-drag-indicator .orbit-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #10b981;
-  box-shadow: 0 0 12px rgba(16, 185, 129, 0.8), 0 0 24px rgba(16, 185, 129, 0.4);
-  animation: orbit-dot-breathe 2.5s ease-in-out infinite;
-  position: relative;
-  z-index: 1;
-}
-
-@keyframes orbit-pulse {
-  0%, 100% { transform: scale(1); opacity: 0.6; }
-  50%       { transform: scale(1.15); opacity: 1; }
-}
-
-@keyframes orbit-dot-breathe {
-  0%, 100% { transform: scale(1); box-shadow: 0 0 12px rgba(16,185,129,0.8), 0 0 24px rgba(16,185,129,0.4); }
-  50%       { transform: scale(1.3); box-shadow: 0 0 20px rgba(16,185,129,1), 0 0 40px rgba(16,185,129,0.6); }
-}
-
-/* ════════════════════════════════════════════════════════════════════════
-   HORIZONTAL SCROLL DRAG INDICATOR
-   ═══════════════════════════════════════════════════════════════════════ */
-.drag-hint {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px 20px;
-  border-radius: 9999px;
-  background: rgba(16, 185, 129, 0.07);
-  border: 1px solid rgba(16, 185, 129, 0.15);
-  width: fit-content;
-  margin: 0 auto;
-}
-
-.drag-hint-arrow {
-  width: 20px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #10b981);
-  border-radius: 9999px;
-  position: relative;
-  animation: drag-arrow-right 1.5s ease-in-out infinite;
-}
-
-.drag-hint-arrow.left {
-  background: linear-gradient(270deg, transparent, #10b981);
-  animation: drag-arrow-left 1.5s ease-in-out infinite;
-}
-
-.drag-hint-arrow::after {
-  content: '';
-  position: absolute;
-  right: -1px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 4px 0 4px 6px;
-  border-color: transparent transparent transparent #10b981;
-}
-
-.drag-hint-arrow.left::after {
-  right: auto;
-  left: -1px;
-  border-width: 4px 6px 4px 0;
-  border-color: transparent #10b981 transparent transparent;
-}
-
-@keyframes drag-arrow-right {
-  0%, 100% { transform: translateX(0); opacity: 0.6; }
-  50%       { transform: translateX(4px); opacity: 1; }
-}
-@keyframes drag-arrow-left {
-  0%, 100% { transform: translateX(0); opacity: 0.6; }
-  50%       { transform: translateX(-4px); opacity: 1; }
 }
 
 /* ════════════════════════════════════════════════════════════════════════
@@ -888,18 +781,155 @@ body::before {
 .ach-card-premium:hover::after { opacity: 1; }
 
 /* ════════════════════════════════════════════════════════════════════════
-   RESPONSIVE TWEAKS
+   RESPONSIVE TWEAKS — Mobile First
    ═══════════════════════════════════════════════════════════════════════ */
+
+/* ─── Small screens (phones) ─────────────────────────────────────────── */
 @media (max-width: 640px) {
+  /* Hero */
   .hero-section {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: 4.5rem;
+    padding-bottom: 4rem;
+    min-height: 100svh;
   }
+
+  /* Hero CTA buttons — stack vertically */
+  .hero-section .flex.flex-wrap.gap-4 {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0 1.5rem;
+  }
+
+  .hero-section .flex.flex-wrap.gap-4 > * {
+    width: 100%;
+  }
+
+  .hero-section .flex.flex-wrap.gap-4 span {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Project slider: wider card on mobile */
   .project-slide {
     width: 88vw;
   }
+
+  /* Achievement cards: tighter padding */
   .ach-card-premium {
-    padding: 1.75rem;
+    padding: 1.5rem;
+  }
+
+  /* Contact cards: 2-per-row on mobile */
+  .contact-card-premium {
+    width: calc(50% - 0.5rem);
+    min-width: 140px;
+    padding: 1.25rem 0.875rem;
+  }
+
+  /* Section header: scale down h2 */
+  h2.text-4xl { font-size: 1.875rem; }
+  h2.text-5xl { font-size: 2.25rem; }
+
+  /* About stat cards: row layout */
+  .about-stat-card {
+    padding: 0.875rem 0.75rem;
+  }
+
+  /* Nav: tighter horizontal padding */
+  nav {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Footer */
+  footer > div {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 1rem !important;
+  }
+
+  /* Experience card: stack duration badge below text */
+  .exp-card-premium .shrink-0 {
+    align-self: flex-start;
+  }
+
+  /* Mobile menu nav items: slightly smaller */
+  .fixed.inset-0 nav button {
+    font-size: 2rem;
   }
 }
+
+/* ─── Medium screens (tablets 641–1023px) ────────────────────────────── */
+@media (min-width: 641px) and (max-width: 1023px) {
+  .contact-card-premium {
+    width: 180px;
+  }
+
+  .project-slide {
+    width: min(480px, 80vw);
+  }
+}
+
+/* ─── Touch devices: hide custom cursor, disable magnetic effect ─────── */
+@media (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring,
+  .cursor-trail { display: none !important; }
+
+  .magnetic-btn {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .portfolio-slider { cursor: default; }
+}
+
+/* Force hide any remaining drag-related UI that might be in the DOM */
+.drag-hint, 
+.scroll-drag-indicator,
+[class*="drag-hint"],
+[class*="scroll-drag"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* ════════════════════════════════════════════════════════════════════════
+   PROJECT SWIPER — Coverflow (replaces custom scroll slider)
+   ═══════════════════════════════════════════════════════════════════════ */
+.project-swiper {
+  width: 100%;
+  padding-top: 1.5rem !important;
+  padding-bottom: 2.5rem !important;
+}
+
+/* Width set here so Swiper's slidesPerView:"auto" picks it up */
+.project-swiper-slide {
+  width: min(520px, 85vw);
+  height: auto;
+}
+
+@media (max-width: 640px) {
+  .project-swiper-slide {
+    width: min(340px, 90vw);
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════════
+   SKILLS — @hello-pangea/dnd draggable track
+   ═══════════════════════════════════════════════════════════════════════ */
+.skills-dnd-track {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 1rem 0.5rem 1.5rem;
+  cursor: grab;
+}
+
+.skills-dnd-track:active { cursor: grabbing; }
 
