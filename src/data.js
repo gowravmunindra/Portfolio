@@ -17,14 +17,14 @@ export const initialData = {
     title: "About Me",
     /* ── moved out of JSX hardcoding ── */
     stats: [
-      { value: '1',  label: 'Year'     },
+      { value: '1', label: 'Year' },
       { value: '5+', label: 'Projects' },
     ],
     tags: ['MERN Stack', 'React.js', 'UI/UX Design', 'Freelancer', 'Clean Code'],
     bio: `I'm a passionate web developer specializing in creating modern, visually appealing, and user-friendly websites. As a budding freelancer, I focus on delivering clean, responsive, and high-performance web experiences using React.js and CSS. I work primarily with the MERN stack (MongoDB, Express.js, React.js, Node.js) and leverage modern "vibe coding" tools to build efficient, scalable, and visually engaging applications. Whether you need a stunning frontend interface or a complete full-stack solution, I can adapt to your project requirements and deliver accordingly. I believe in writing clean code, maintaining good UI/UX standards, and building products that not only work well but also look great. My goal is to help clients turn their ideas into functional and impactful digital experiences.`,
   },
   skills: {
-    title: "Key Skills",
+    title: "Skills",
     desc: "Technologies I use to build the website",
     items: [
       "React.js",
@@ -105,7 +105,7 @@ export const initialData = {
     ],
   },
   contact: {
-    title: "Get In Touch",
+    title: "contact",
     desc: "Open to collaborations, freelance work and exciting opportunities.",
     email: "gowravmunindra@gmail.com",
     phone: "6300476098",
@@ -113,11 +113,11 @@ export const initialData = {
     linkedin: "https://www.linkedin.com/in/gowrav-munindra-76a057224/",
   },
   layout: [
-    { id: 'hero',              visible: true, locked: true  },
-    { id: 'about',             visible: true, locked: false },
-    { id: 'skills',            visible: true, locked: false },
-    { id: 'FrontendProjects',  visible: true, locked: false, navLabel: 'Frontend'   },
+    { id: 'hero', visible: true, locked: true },
+    { id: 'about', visible: true, locked: false },
+    { id: 'skills', visible: true, locked: false },
+    { id: 'FrontendProjects', visible: true, locked: false, navLabel: 'Frontend' },
     { id: 'MernStackProjects', visible: true, locked: false, navLabel: 'MERN Stack' },
-    { id: 'contact',           visible: true, locked: false },
+    { id: 'contact', visible: true, locked: false },
   ],
 };
